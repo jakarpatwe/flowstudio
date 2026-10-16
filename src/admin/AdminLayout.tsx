@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { isManagerRole, useAuth } from '../lib/auth';
+import { Logo } from '../ui/Logo';
 
 const roleText = { member: 'สมาชิก', instructor: 'ครู', staff: 'พนักงาน', manager: 'ผู้จัดการ', owner: 'เจ้าของ' };
 
@@ -19,7 +20,10 @@ export function AdminLayout() {
   return (
     <div className="a-shell">
       <aside className="a-side">
-        <div className="brand">{branch?.name ?? 'สตูดิโอ'}</div>
+        <div className="brand">
+          <Logo size={36} />
+          <span>FLOW<small>{branch?.name ?? 'สตูดิโอ'}</small></span>
+        </div>
         {links.map((l) => <NavLink key={l.to} to={l.to} end={l.end}>{l.label}</NavLink>)}
         <div className="who">
           <div style={{ color: '#fff' }}>{profile?.display_name}</div>

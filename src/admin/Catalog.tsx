@@ -23,7 +23,7 @@ const opts = (list: Rec[], extra?: Opt) => [...(extra ? [extra] : []), ...list.m
 const sections: { id: string; title: string; table: string; order: string; fields: Field[]; defaults: Rec; hint: string }[] = [
   {
     id: 'classes', title: 'ประเภทคลาส', table: 'class_types', order: 'sort_order', hint: 'เพิ่มคลาสใหม่ได้ทันที กำหนดเครดิต ห้อง และผังเริ่มต้น',
-    defaults: { color: '#3A55E8', duration_minutes: 50, credit_cost: 1, booking_window_days: 7, cancel_cutoff_hours: 12, active: true, requires_vip: false, sort_order: 10 },
+    defaults: { color: '#0B7F8F', duration_minutes: 50, credit_cost: 1, booking_window_days: 7, cancel_cutoff_hours: 12, active: true, requires_vip: false, sort_order: 10 },
     fields: [
       { key: 'name', label: 'ชื่อคลาส', type: 'text', required: true, list: true },
       { key: 'description', label: 'คำอธิบาย', type: 'textarea' },
