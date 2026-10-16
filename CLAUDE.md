@@ -21,7 +21,7 @@ Stack: Vite + React 18 + TypeScript, Supabase (Postgres, Auth, Realtime, one Edg
 
 ## UI
 - Copy is Thai, plain and specific; buttons say exactly what happens ("จองตำแหน่งนี้", not "ยืนยัน").
-- Visual tokens are in `src/styles/app.css` (teal = equipment / brand accent, violet = "you", maple = reformer; black + white from the FLOW logo in `src/ui/Logo.tsx`).
+- Visual tokens are in `src/styles/app.css` (teal = equipment / brand accent, violet = "you", maple = reformer; logo (blue tile #619BB1) in `src/ui/Logo.tsx`).
   The room map is the one bold element; keep other screens quiet. No gradients, no emoji, no stock icons sets.
 
 ## Commands

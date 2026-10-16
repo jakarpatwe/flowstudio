@@ -1,4 +1,4 @@
-import { BrandLockup } from './ui/Logo';
+import { Logo } from './ui/Logo';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { isStaffRole, useAuth } from './lib/auth';
 import { configured } from './lib/supabase';
@@ -27,7 +27,7 @@ function Setup() {
   return (
     <div className="gate">
       <div className="gate-card">
-        <BrandLockup />
+        <div className="logo-hero"><Logo size={120} /></div>
         <h1>ยังไม่ได้เชื่อมฐานข้อมูล</h1>
         <p className="muted">
           คัดลอกไฟล์ <code>.env.example</code> เป็น <code>.env</code> แล้วใส่ <code>VITE_SUPABASE_URL</code> และ{' '}
@@ -42,7 +42,7 @@ function Loading() {
   return (
     <div className="gate" aria-busy="true">
       <div className="gate-card" style={{ justifyItems: 'center' }}>
-        <BrandLockup />
+        <div className="logo-hero"><Logo size={120} /></div>
         <p className="muted">กำลังเปิด…</p>
       </div>
     </div>

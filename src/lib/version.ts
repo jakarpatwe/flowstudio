@@ -2,7 +2,7 @@
  *  MAJOR = big change that alters how the studio works, MINOR = new feature, PATCH = fix or small tweak.
  *  On every change: bump APP_VERSION, add a newest-first entry below, and mirror it in CHANGELOG.md
  *  and package.json "version". */
-export const APP_VERSION = '0.3.1';
+export const APP_VERSION = '0.3.2';
 
 export type ChangeKind = 'major' | 'minor' | 'patch';
 
@@ -16,6 +16,12 @@ export interface ChangeEntry {
 
 /** Newest first. Wording is for the studio owner, in Thai. */
 export const CHANGELOG: ChangeEntry[] = [
+  {
+    version: '0.3.2',
+    at: '2026-10-16T14:43:00+07:00',
+    kind: 'patch',
+    items: ['เปลี่ยนเป็นโลโก้ใหม่ของสตูดิโอ (พื้นฟ้า #619BB1) ทุกหน้า และเอาตัวอักษร FLOW ออก: หน้าเข้าสู่ระบบใช้โลโก้ใหญ่ หัวหน้าสมาชิกและแถบเมนูหลังร้านใช้โลโก้ขนาดพอดี'],
+  },
   {
     version: '0.3.1',
     at: '2026-10-16T14:35:00+07:00',

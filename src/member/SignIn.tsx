@@ -1,4 +1,4 @@
-import { BrandLockup } from '../ui/Logo';
+import { Logo } from '../ui/Logo';
 import { useState, type FormEvent } from 'react';
 import { useAuth } from '../lib/auth';
 import { errorText } from '../lib/errors';
@@ -40,7 +40,7 @@ export function SignIn() {
   return (
     <div className="gate">
       <form className="gate-card" onSubmit={submit}>
-        <BrandLockup />
+        <div className="logo-hero"><Logo size={120} /></div>
         <div className="stack" style={{ gap: 6 }}>
           <h1>{mode === 'in' ? 'เข้าสู่ระบบ' : 'สร้างบัญชี'}</h1>
           <p className="muted">

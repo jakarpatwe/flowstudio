@@ -1,26 +1,20 @@
-/** FLOW Movement Studio mark: hexagon "f" over a trampoline ellipse.
- *  Default is white on a teal disc; `inverse` is teal on white, for teal backgrounds. */
-export function Logo({ size = 56, inverse = false, title = 'FLOW Movement Studio' }: { size?: number; inverse?: boolean; title?: string }) {
-  const disc = inverse ? '#fff' : '#0B7F8F';
-  const ink = inverse ? '#0B7F8F' : '#fff';
-  return (
-    <svg width={size} height={size} viewBox="0 0 120 120" role="img" aria-label={title} className="logo">
-      <circle cx="60" cy="60" r="60" fill={disc} />
-      <g fill="none" stroke={ink} strokeWidth="3.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M45.75 30 H75.75 L87 52.5 L75.75 75.75 H45.75 L34.5 52.5 Z" />
-        <path d="M52 69 V45 C52 40 56 36.5 60.5 36.5 C65 36.5 68.5 40 68.5 45.5 C68.5 51.5 64 56 58 56 H50" />
-      </g>
-      <ellipse cx="60" cy="88" rx="24" ry="2.6" fill={ink} />
-    </svg>
-  );
-}
+/** FLOW Movement Studio logo: white hexagon with a looped "f" over a trampoline ellipse,
+ *  on the brand blue tile (#619BB1). Traced from the studio's own logo file.
+ *  `inverse` = blue mark on a white tile, for coloured backgrounds. */
+export const LOGO_BLUE = '#619BB1';
 
-/** Big centred logo with the FLOW wordmark, for sign-in and loading screens. */
-export function BrandLockup({ size = 112 }: { size?: number }) {
+export function Logo({ size = 56, inverse = false, title = 'FLOW Movement Studio' }: { size?: number; inverse?: boolean; title?: string }) {
+  const tile = inverse ? '#fff' : LOGO_BLUE;
+  const ink = inverse ? LOGO_BLUE : '#fff';
   return (
-    <div className="brand-lockup">
-      <Logo size={size} />
-      <div className="wordmark">FLOW<small>MOVEMENT STUDIO</small></div>
-    </div>
+    <svg width={size} height={size} viewBox="0 0 447 447" role="img" aria-label={title} className="logo">
+      <rect width="447" height="447" rx="72" fill={tile} />
+      <g fill="none" stroke={ink} strokeWidth="19" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M166 118 H280 L336 210 L282 303 H164 L116 210 Z" />
+        <path d="M188 280 V172 Q188 147 213 147 H262" />
+        <ellipse cx="227" cy="207" rx="31" ry="14" />
+      </g>
+      <ellipse cx="224" cy="355" rx="100" ry="13" fill={ink} />
+    </svg>
   );
 }
