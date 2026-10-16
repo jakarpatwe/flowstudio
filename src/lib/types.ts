@@ -9,6 +9,7 @@ export interface Profile {
   id: string; branch_id: string | null; role: Role; display_name: string; phone: string | null;
   birthday: string | null; emergency_contact: string | null; avatar_url: string | null;
   pdpa_consent_at: string | null; tags: string[]; staff_note: string | null; checkin_code: string; created_at: string;
+  username: string | null; permissions: string[] | null; active: boolean;
 }
 
 export interface Room { id: string; branch_id: string; name: string; kind: 'group' | 'vip'; turnover_minutes: number; sort_order: number; active: boolean }

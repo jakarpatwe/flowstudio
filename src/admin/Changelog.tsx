@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { isManagerRole, useAuth } from '../lib/auth';
+import { useAuth } from '../lib/auth';
 import { fmtDateTime } from '../lib/format';
 import { supabase } from '../lib/supabase';
 import { APP_VERSION, CHANGELOG, type ChangeKind } from '../lib/version';
@@ -10,18 +10,14 @@ const kindChip: Record<ChangeKind, string> = { major: 'chip chip-bad', minor: 'c
 /** Stays unlocked until the page is reloaded, so moving around the admin doesn't ask again. */
 let unlocked = false;
 
-/** Change log for owners and managers. They re-enter their own password before it opens. */
+/** Change log ("changelog" section). People re-enter their own password before it opens. */
 export function Changelog() {
-  const { profile, session } = useAuth();
+  const { session } = useAuth();
   const [open, setOpen] = useState(unlocked);
   const [password, setPassword] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const email = session?.user.email;
-
-  if (!isManagerRole(profile)) {
-    return <div className="empty"><p>หน้านี้สำหรับเจ้าของและผู้จัดการเท่านั้น</p></div>;
-  }
 
   async function unlock(e: FormEvent) {
     e.preventDefault();

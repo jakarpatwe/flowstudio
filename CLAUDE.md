@@ -32,3 +32,10 @@ Stack: Vite + React 18 + TypeScript, Supabase (Postgres, Auth, Realtime, one Edg
 2. Add a newest-first entry to `CHANGELOG` in `src/lib/version.ts` with the Bangkok time of the change (Thai, owner-facing wording).
 3. Add the same entry to `CHANGELOG.md`, noting any new migration file.
 The in-app log is at `/admin/changelog` (owner/manager, re-enter password).
+
+## Users and permissions (v0.3.0+)
+- Admin sections: `src/lib/permissions.ts` ↔ `public.role_sections()` in migration 0005 — keep both lists in sync.
+  Role = the most someone can do; `profiles.permissions` switches sections off/on within it (null = role default).
+- Staff sign in with a username → auth email `<username>@flowstudio.local` (accounts created by `_create_staff_user`, never mailed).
+- Pages are gated in the UI by `<Gate section>`; the database still enforces role checks (staff/manager) and `has_section('users'|'branch')`.
+- `supabase/demo_data.sql` loads test data once (members tagged `demo`). Local `setup-*.sql` files hold test passwords and are git-ignored.

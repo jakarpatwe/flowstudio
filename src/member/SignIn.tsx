@@ -4,6 +4,7 @@ import { useAuth } from '../lib/auth';
 import { errorText } from '../lib/errors';
 import { supabase } from '../lib/supabase';
 import { APP_VERSION } from '../lib/version';
+import { loginEmail } from '../lib/permissions';
 
 /** Members normally arrive signed in through LINE. This screen covers staff on a computer,
  *  development without LIFF, and the rare LINE failure. */
@@ -22,8 +23,8 @@ export function SignIn() {
     setBusy(true); setError(null); setNotice(null);
     try {
       if (mode === 'in') {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw new Error(error.message === 'Invalid login credentials' ? 'อีเมลหรือรหัสผ่านไม่ถูกต้อง' : error.message);
+        const { error } = await supabase.auth.signInWithPassword({ email: loginEmail(email), password });
+        if (error) throw new Error(error.message === 'Invalid login credentials' ? 'ชื่อผู้ใช้ อีเมล หรือรหัสผ่านไม่ถูกต้อง' : error.message);
       } else {
         const { data, error } = await supabase.auth.signUp({ email, password, options: { data: { name } } });
         if (error) throw error;
@@ -52,8 +53,9 @@ export function SignIn() {
             <input className="input" value={name} onChange={(e) => setName(e.target.value)} required autoComplete="name" />
           </label>
         )}
-        <label className="field"><span>อีเมล</span>
-          <input className="input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="email" />
+        <label className="field"><span>{mode === 'in' ? 'ชื่อผู้ใช้หรืออีเมล' : 'อีเมล'}</span>
+          <input className="input" type={mode === 'in' ? 'text' : 'email'} value={email} onChange={(e) => setEmail(e.target.value)} required
+            autoComplete={mode === 'in' ? 'username' : 'email'} autoCapitalize="none" spellCheck={false} />
         </label>
         <label className="field"><span>รหัสผ่าน</span>
           <input className="input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={6}

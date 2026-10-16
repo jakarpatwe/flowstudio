@@ -10,7 +10,9 @@ import { SessionPage } from './member/SessionPage';
 import { MyBookings } from './member/MyBookings';
 import { Packages } from './member/Packages';
 import { ProfilePage } from './member/ProfilePage';
-import { AdminLayout } from './admin/AdminLayout';
+import { AdminLayout, Gate } from './admin/AdminLayout';
+import { Users } from './admin/Users';
+import { BranchSettings } from './admin/BranchSettings';
 import { Dashboard } from './admin/Dashboard';
 import { Timetable } from './admin/Timetable';
 import { SessionAdmin } from './admin/SessionAdmin';
@@ -62,15 +64,17 @@ export function App() {
   return (
     <Routes>
       <Route path="/admin" element={<AdminLayout />}>
-        <Route index element={<Dashboard />} />
-        <Route path="timetable" element={<Timetable />} />
-        <Route path="sessions/:id" element={<SessionAdmin />} />
-        <Route path="layouts" element={<LayoutEditor />} />
-        <Route path="catalog" element={<Catalog />} />
-        <Route path="members" element={<Members />} />
-        <Route path="pos" element={<Pos />} />
-        <Route path="reports" element={<Reports />} />
-        <Route path="changelog" element={<Changelog />} />
+        <Route index element={<Gate section="today"><Dashboard /></Gate>} />
+        <Route path="timetable" element={<Gate section="timetable"><Timetable /></Gate>} />
+        <Route path="sessions/:id" element={<Gate section="timetable"><SessionAdmin /></Gate>} />
+        <Route path="layouts" element={<Gate section="layouts"><LayoutEditor /></Gate>} />
+        <Route path="catalog" element={<Gate section="catalog"><Catalog /></Gate>} />
+        <Route path="members" element={<Gate section="members"><Members /></Gate>} />
+        <Route path="pos" element={<Gate section="pos"><Pos /></Gate>} />
+        <Route path="reports" element={<Gate section="reports"><Reports /></Gate>} />
+        <Route path="changelog" element={<Gate section="changelog"><Changelog /></Gate>} />
+        <Route path="users" element={<Gate section="users"><Users /></Gate>} />
+        <Route path="branch" element={<Gate section="branch"><BranchSettings /></Gate>} />
       </Route>
       <Route element={<MemberLayout />}>
         <Route index element={<Home />} />

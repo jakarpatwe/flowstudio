@@ -38,6 +38,11 @@ const messages: Record<string, string> = {
   member_not_found: 'ไม่พบสมาชิกจากโค้ดนี้',
   import_not_available: 'รายการนี้ถูกโอนเข้าบัญชีแล้ว',
   not_found: 'ไม่พบข้อมูล',
+  username_invalid: 'ชื่อผู้ใช้ใช้ได้เฉพาะ a-z ตัวเลข จุด ขีด ยาว 3–30 ตัว',
+  username_taken: 'ชื่อผู้ใช้นี้มีคนใช้แล้ว',
+  password_too_short: 'รหัสผ่านต้องยาวอย่างน้อย 6 ตัว',
+  cannot_change_self: 'เปลี่ยนสิทธิ์ ระงับ หรือเอาสิทธิ์จัดการผู้ใช้ออกจากบัญชีตัวเองไม่ได้',
+  name_required: 'ใส่ชื่อก่อน',
   line_token_invalid: 'เข้าสู่ระบบ LINE ไม่สำเร็จ ลองเปิดลิงก์ใหม่อีกครั้ง',
 };
 

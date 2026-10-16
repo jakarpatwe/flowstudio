@@ -20,8 +20,8 @@ interface AuthState {
 
 const Ctx = createContext<AuthState | null>(null);
 
-export const isStaffRole = (p: Profile | null) => !!p && ['staff', 'manager', 'owner'].includes(p.role);
-export const isManagerRole = (p: Profile | null) => !!p && ['manager', 'owner'].includes(p.role);
+export const isStaffRole = (p: Profile | null) => !!p && p.active !== false && ['staff', 'manager', 'owner'].includes(p.role);
+export const isManagerRole = (p: Profile | null) => !!p && p.active !== false && ['manager', 'owner'].includes(p.role);
 
 async function signInWithLine(): Promise<void> {
   const { default: liff } = await import('@line/liff');

@@ -2,7 +2,7 @@
  *  MAJOR = big change that alters how the studio works, MINOR = new feature, PATCH = fix or small tweak.
  *  On every change: bump APP_VERSION, add a newest-first entry below, and mirror it in CHANGELOG.md
  *  and package.json "version". */
-export const APP_VERSION = '0.2.1';
+export const APP_VERSION = '0.3.0';
 
 export type ChangeKind = 'major' | 'minor' | 'patch';
 
@@ -16,6 +16,18 @@ export interface ChangeEntry {
 
 /** Newest first. Wording is for the studio owner, in Thai. */
 export const CHANGELOG: ChangeEntry[] = [
+  {
+    version: '0.3.0',
+    at: '2026-10-16T14:16:00+07:00',
+    kind: 'minor',
+    items: [
+      'เพิ่มหน้า "ผู้ใช้และสิทธิ์" ในหลังร้าน: สร้างบัญชีพนักงานด้วยชื่อผู้ใช้ ตั้งรหัสผ่าน เปลี่ยนบทบาท และระงับบัญชีได้',
+      'กำหนดได้ว่าแต่ละคนเข้าส่วนไหนของหลังร้าน (วันนี้ ขายหน้าเคาน์เตอร์ ตารางคลาส สมาชิก รายงาน ผังห้อง ตั้งค่า ฯลฯ)',
+      'เข้าสู่ระบบด้วยชื่อผู้ใช้ได้ (เช่น happy) นอกจากอีเมล',
+      'เพิ่มหน้า "ตั้งค่าสาขา" แก้ชื่อสาขา ที่อยู่ และเบอร์ PromptPay ได้',
+      'มีชุดข้อมูลจำลองสำหรับทดสอบ: สมาชิก 30 คน ยอดขาย คลาสย้อนหลัง 3 วันถึงล่วงหน้า 5 วัน การจอง เช็คอิน คิวรอ',
+    ],
+  },
   {
     version: '0.2.1',
     at: '2026-10-16T14:02:00+07:00',
