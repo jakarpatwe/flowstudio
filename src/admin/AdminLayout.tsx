@@ -36,7 +36,7 @@ export function AdminLayout() {
     <div className="a-shell">
       <aside className="a-side">
         <div className="brand">
-          <Logo size={36} />
+          <Logo size={52} inverse />
           <span>FLOW<small>{branch?.name ?? 'สตูดิโอ'}</small></span>
         </div>
         {links.map((l) => <NavLink key={l.to} to={l.to} end={l.end}>{l.label}</NavLink>)}

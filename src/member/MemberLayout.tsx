@@ -1,5 +1,6 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { isStaffRole, useAuth } from '../lib/auth';
+import { Logo } from '../ui/Logo';
 
 const Icon = ({ d }: { d: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -22,6 +23,7 @@ export function MemberLayout() {
     <div className="m-shell">
       <header className="m-top">
         <div className="row">
+          <a href="/" className="m-brand" aria-label="FLOW Movement Studio หน้าแรก"><Logo size={44} /><span>FLOW</span></a>
           {isStaffRole(profile) && <a className="btn btn-s" href="/admin">หลังร้าน</a>}
         </div>
         <button className="avatar" onClick={() => nav('/me')} aria-label="โปรไฟล์ของฉัน">
