@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { isManagerRole, useAuth } from '../lib/auth';
 import { Logo } from '../ui/Logo';
+import { APP_VERSION } from '../lib/version';
 
 const roleText = { member: 'สมาชิก', instructor: 'ครู', staff: 'พนักงาน', manager: 'ผู้จัดการ', owner: 'เจ้าของ' };
 
@@ -29,6 +30,9 @@ export function AdminLayout() {
           <div style={{ color: '#fff' }}>{profile?.display_name}</div>
           <div>{profile ? roleText[profile.role] : ''}</div>
           <a href="/" style={{ padding: 0, marginTop: 8, display: 'inline-block' }}>ไปหน้าสมาชิก</a>
+          {isManagerRole(profile)
+            ? <NavLink to="/admin/changelog" className="version">เวอร์ชัน {APP_VERSION}</NavLink>
+            : <div className="version">เวอร์ชัน {APP_VERSION}</div>}
         </div>
       </aside>
       <main className="a-main"><Outlet /></main>

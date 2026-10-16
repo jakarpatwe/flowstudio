@@ -1,4 +1,4 @@
-# Studio Booking — v0.1.0
+# Studio Booking (FLOW Movement Studio)
 
 ระบบจองคลาสสำหรับสตูดิโอ (แทรมโพลีน, บอร์ด, Reformer Pilates, VIP 1:1)
 สมาชิกใช้ผ่าน LINE ส่วนพนักงานใช้หลังร้านบนเว็บ (`/admin`) ข้อมูลทั้งหมดอยู่บน Supabase และ deploy เว็บบน Netlify

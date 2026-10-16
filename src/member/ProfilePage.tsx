@@ -5,6 +5,7 @@ import { fmtDate, fmtDateTime } from '../lib/format';
 import { loadWallet } from '../lib/queries';
 import { rows, rpc, supabase } from '../lib/supabase';
 import { useLoad } from '../lib/useLoad';
+import { APP_VERSION } from '../lib/version';
 import { Qr } from '../ui/Qr';
 import { useToast } from '../ui/Toast';
 
@@ -98,6 +99,7 @@ export function ProfilePage() {
       )}
 
       <button className="btn btn-quiet" onClick={() => void signOut()}>ออกจากระบบ</button>
+      <p className="faint center num">เวอร์ชัน {APP_VERSION}</p>
     </div>
   );
 }

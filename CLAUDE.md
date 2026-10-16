@@ -26,3 +26,9 @@ Stack: Vite + React 18 + TypeScript, Supabase (Postgres, Auth, Realtime, one Edg
 
 ## Commands
 - `npm run dev` · `npm run build` · `npm run typecheck` · `npm run test:db`
+
+## Versioning rule (every change)
+1. Bump `APP_VERSION` in `src/lib/version.ts` (MAJOR.MINOR.PATCH — MAJOR big change, MINOR new feature, PATCH fix/tweak) and `version` in `package.json`.
+2. Add a newest-first entry to `CHANGELOG` in `src/lib/version.ts` with the Bangkok time of the change (Thai, owner-facing wording).
+3. Add the same entry to `CHANGELOG.md`, noting any new migration file.
+The in-app log is at `/admin/changelog` (owner/manager, re-enter password).

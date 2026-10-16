@@ -19,6 +19,7 @@ import { Catalog } from './admin/Catalog';
 import { Members } from './admin/Members';
 import { Pos } from './admin/Pos';
 import { Reports } from './admin/Reports';
+import { Changelog } from './admin/Changelog';
 
 function Setup() {
   return (
@@ -69,6 +70,7 @@ export function App() {
         <Route path="members" element={<Members />} />
         <Route path="pos" element={<Pos />} />
         <Route path="reports" element={<Reports />} />
+        <Route path="changelog" element={<Changelog />} />
       </Route>
       <Route element={<MemberLayout />}>
         <Route index element={<Home />} />

@@ -3,6 +3,7 @@ import { useState, type FormEvent } from 'react';
 import { useAuth } from '../lib/auth';
 import { errorText } from '../lib/errors';
 import { supabase } from '../lib/supabase';
+import { APP_VERSION } from '../lib/version';
 
 /** Members normally arrive signed in through LINE. This screen covers staff on a computer,
  *  development without LIFF, and the rare LINE failure. */
@@ -64,6 +65,7 @@ export function SignIn() {
         <button type="button" className="btn btn-quiet" onClick={() => setMode(mode === 'in' ? 'up' : 'in')}>
           {mode === 'in' ? 'ยังไม่มีบัญชี สร้างบัญชีใหม่' : 'มีบัญชีแล้ว เข้าสู่ระบบ'}
         </button>
+        <p className="faint center num">เวอร์ชัน {APP_VERSION}</p>
       </form>
     </div>
   );
